@@ -1,0 +1,10 @@
+# Project exclude paths
+/common/target/
+/db/db-common/target/
+/db/db-system/target/
+/service/service-common/target/
+/service/service-system/target/
+/web/web-common/target/
+/web/web-system/target/
+/.idea
+/logs/
