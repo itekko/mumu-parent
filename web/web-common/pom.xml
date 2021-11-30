@@ -11,5 +11,12 @@
 
     <artifactId>web-common</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.mumu</groupId>
+            <artifactId>service-common</artifactId>
+        </dependency>
+    </dependencies>
+
 
 </project>

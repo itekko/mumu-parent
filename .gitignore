@@ -7,4 +7,5 @@
 /web/web-common/target/
 /web/web-system/target/
 /.idea
+*.iml
 /logs/

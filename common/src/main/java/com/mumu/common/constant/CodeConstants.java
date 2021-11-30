@@ -17,4 +17,15 @@ public final class CodeConstants {
      * 失败
      */
     public static final String FAIL = "500";
+    public static final String BUSY = "5001";
+
+    /**
+     * 数据不存在
+     */
+    public static final String DATA_NOT_EXIST = "4000";
+
+    /**
+     * 参数错误
+     */
+    public static final String ARGS_ERROR = "4001";
 }

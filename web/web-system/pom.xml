@@ -18,6 +18,11 @@
             <groupId>com.mumu</groupId>
             <artifactId>web-common</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.mumu</groupId>
+            <artifactId>service-system</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

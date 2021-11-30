@@ -8,6 +8,8 @@ package com.mumu.common.constant;
  */
 public final class CommonConstants {
 
+
+
     private CommonConstants(){}
 
     /**
@@ -18,6 +20,12 @@ public final class CommonConstants {
     /**
      * mybatis公共扫描包(Mapper)
      */
-    public static final  String COMMON_MAPPER_PACKAGE = "com.mumu.db.*.*.mapper";
+    public static final  String COMMON_MAPPER_PACKAGE = "com.mumu.db.*.mapper";
+
+    /**
+     * 所有表的主键名称
+     */
+    public static final String COMMON_TABLE_ID = "id";
+
 
 }

@@ -15,6 +15,15 @@ spring:
   messages:
     basename: i18n/messages
 
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/mumu?useUnicode=true&useSSL=false&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+    username: root
+    password: xiaolong
+
 
 sa-token:
   # token名称 (同时也是cookie名称)
@@ -40,6 +49,8 @@ mybatis-plus:
 logging:
   file:
     path: ./logs/mumu/web/${spring.application.name}
+  level:
+    com.mumu.db.system.mapper: debug # 打印SQL语句
 
 #knife4j配置
 #knife4j:

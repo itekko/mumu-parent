@@ -1,6 +1,5 @@
 package com.mumu.common.db.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.Version;
@@ -37,28 +36,29 @@ public class BaseEntity {
     /**
      * 创建者
      */
-    @TableField(fill = FieldFill.INSERT)
-    private String createBy;
+    // @TableField(fill = FieldFill.INSERT)
+    private String createdBy;
 
     /**
      * 创建时间
      */
-    private LocalDateTime createDate;
+    private LocalDateTime createdTime;
 
     /**
      * 更新者
      */
-    @TableField(fill = FieldFill.UPDATE)
-    private String updateBy;
+    //@TableField(fill = FieldFill.UPDATE)
+    private String updatedBy;
 
     /**
      * 更新时间
      */
-    private LocalDateTime updateDate;
+    private LocalDateTime updatedTime;
 
     /**
      * 删除标识（0：正常；1：已删除）
      */
+    @TableField(select = false)
     @TableLogic
     private String deleteFlag;
 

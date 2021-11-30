@@ -43,13 +43,17 @@ public class MybatisPlusConfig {
 
 
     /**
-     * 乐观锁插件
+     * 乐观锁插件，注释以下的乐观锁拦截器已废弃
      * @return
      */
     @Bean
-    public OptimisticLockerInnerInterceptor optimisticLockerInnerInterceptor() {
-        return new OptimisticLockerInnerInterceptor();
+    public MybatisPlusInterceptor optimisticLockerInnerInterceptor() {
+        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+        interceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
+        return interceptor;
     }
+
+
 
 
 }

@@ -28,6 +28,7 @@
 
         <spring-boot.version>2.4.3</spring-boot.version>
         <hutool.version>5.7.16</hutool.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
         <mybatis-plus-starter.version>3.4.3.4</mybatis-plus-starter.version>
         <easypoi-spring-boot-starter.version>4.4.0</easypoi-spring-boot-starter.version>
         <redisson-spring-boot-starter.version>3.16.4</redisson-spring-boot-starter.version>
@@ -37,6 +38,7 @@
         <common.version>1.0-SNAPSHOT</common.version>
         <db-common.version>1.0-SNAPSHOT</db-common.version>
         <service-common.version>1.0-SNAPSHOT</service-common.version>
+        <service-system.version>1.0-SNAPSHOT</service-system.version>
         <db-system.version>1.0-SNAPSHOT</db-system.version>
         <web-common.version>1.0-SNAPSHOT</web-common.version>
 
@@ -53,6 +55,11 @@
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
         </dependency>
     </dependencies>
 
@@ -101,6 +108,12 @@
                 <version>${hutool.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
             <!--自定义模块开始-->
             <dependency>
                 <groupId>com.mumu</groupId>
@@ -128,9 +141,17 @@
 
             <dependency>
                 <groupId>com.mumu</groupId>
+                <artifactId>service-system</artifactId>
+                <version>${service-system.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mumu</groupId>
                 <artifactId>web-common</artifactId>
                 <version>${web-common.version}</version>
             </dependency>
+
+
 
 
             <!--自定义模块结束-->

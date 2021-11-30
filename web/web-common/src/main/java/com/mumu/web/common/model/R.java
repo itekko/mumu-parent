@@ -31,9 +31,17 @@ public class R<T> {
 
     public static <T> R<T> success(T data) {
         if (data instanceof Boolean && Boolean.FALSE.equals(data)) {
-            return error(I18Utils.getMessage(CodeConstants.FAIL,null));
+            return error(I18Utils.getMessage(CodeConstants.BUSY,null));
         }
-        return restResult(CodeConstants.SUCCESS,I18Utils.getMessage(CodeConstants.FAIL,null), data);
+        return restResult(CodeConstants.SUCCESS,I18Utils.getMessage(CodeConstants.SUCCESS,null), data);
+    }
+
+    public static <T> R<T> build(String code) {
+        return restResult(code,I18Utils.getMessage(code,null), null);
+    }
+
+    public static <T> R<T> build(String code,String msg) {
+        return restResult(code,msg, null);
     }
 
 

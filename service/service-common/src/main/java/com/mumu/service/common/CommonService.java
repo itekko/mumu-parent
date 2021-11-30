@@ -35,6 +35,13 @@ public interface CommonService <T>{
     Boolean remove(Serializable id);
 
     /**
+     * 批量删除
+     * @param ids
+     * @return
+     */
+    Boolean batchRemove(List<Serializable> ids);
+
+    /**
      * 详情
      * @param id
      * @return
