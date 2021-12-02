@@ -1,0 +1,128 @@
+package ${package}.web.${moduleName}.controller;
+
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.mumu.db.common.builder.BaseBuilder;
+import ${package}.service.${moduleName}.bo.${className}BO;
+import com.mumu.service.${moduleName}.service.${className}Service;
+import com.mumu.web.common.model.R;
+import com.mumu.web.common.query.PageQuery;
+import com.mumu.web.common.vo.in.BatchRemoveVO;
+import ${package}.web.${moduleName}.vo.in.${className}Query;
+import ${package}.web.${moduleName}.vo.in.${className}Save;
+import ${package}.web.${moduleName}.vo.in.${className}Update;
+import ${package}.web.${moduleName}.vo.out.${className}Detail;
+import ${package}.web.${moduleName}.vo.out.${className}List;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
+
+import java.io.Serializable;
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * ${comments}web层
+ * @author ${author}
+ * @create ${datetime}
+ */
+@Api(tags = "${comments}")
+@Slf4j
+@AllArgsConstructor
+@RestController
+@RequestMapping("${classname}")
+public class ${className}Controller {
+
+    private final ${className}Service ${classname}Service;
+
+    /**
+     * 列表
+     * @param
+     * @return
+     */
+    @ApiOperation(value = "列表")
+    @PostMapping("list")
+    public R<List<${className}List>> list(@RequestBody ${className}Query ${classname}Query){
+        return R.success(${classname}Service
+                .list(BaseBuilder.copyProperties(${classname}Query, ${className}BO.class))
+                .stream()
+                .map(it -> BaseBuilder.copyProperties(it,${className}List.class))
+                .collect(Collectors.toList()));
+    }
+
+    /**
+     * 意见反馈表列表(分页)
+     * @param pageQuery 分页参数
+     * @return
+     */
+    @ApiOperation(value = "列表(分页)")
+    @PostMapping("page")
+    public R<IPage<${className}List>> page(@RequestBody PageQuery<${className}Query> pageQuery){
+        IPage<${className}BO> page = ${classname}Service.page(BaseBuilder.copyProperties(pageQuery.getSearch(), ${className}BO.class), pageQuery.getCurrent(), pageQuery.getSize());
+        IPage<${className}List> result = new Page<>();
+        BeanUtils.copyProperties(page,result);
+        List<${className}BO> records = page.getRecords();
+        result.setRecords(records.stream().map(it -> BaseBuilder.copyProperties(it,${className}List.class)).collect(Collectors.toList()));
+        return R.success(result);
+    }
+
+    /**
+     * 新增
+     * @param ${classname}Save
+     * @return
+     */
+    @ApiOperation(value = "新增")
+    @PostMapping
+    public R<Boolean> save(@RequestBody ${className}Save ${classname}Save){
+        return R.success(${classname}Service.save(BaseBuilder.copyProperties(${classname}Save,${className}BO.class)));
+    }
+
+    /**
+     * 更新
+     * @param ${classname}Update
+     * @return
+     */
+    @ApiOperation(value = "更新")
+    @PutMapping
+    public R<Boolean> update(@RequestBody ${className}Update ${classname}Update){
+        return R.success(${classname}Service.update(BaseBuilder.copyProperties(${classname}Update,${className}BO.class)));
+    }
+
+    /**
+     * 详情
+     * @param id
+     * @return
+     */
+    @ApiOperation(value = "详情")
+    @GetMapping("get/{id}")
+    public R<${className}Detail> get(@PathVariable("id") Serializable id){
+        return R.success(BaseBuilder.copyProperties(${classname}Service.get(id),${className}Detail.class));
+    }
+
+    /**
+     * 删除
+     * @param  id
+     * @return
+     */
+    @ApiOperation(value = "删除")
+    @GetMapping("remove/{id}")
+    public R<Boolean> remove(@PathVariable("id") Serializable id){
+        return R.success(${classname}Service.remove(id));
+    }
+
+    /**
+     * 批量删除
+     * @param  batchRemoveVO
+     * @return
+     */
+    @ApiOperation(value = "批量删除")
+    @PostMapping("batchRemove")
+    public R<Boolean> remove(@RequestBody BatchRemoveVO batchRemoveVO){
+        return R.success(${classname}Service.batchRemove(batchRemoveVO.getIds()));
+    }
+
+
+
+}

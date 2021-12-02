@@ -2,7 +2,7 @@ package com.mumu.web.system.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.mumu.common.db.builder.BaseBuilder;
+import com.mumu.db.common.builder.BaseBuilder;
 import com.mumu.service.system.bo.RoleBO;
 import com.mumu.service.system.service.RoleService;
 import com.mumu.web.common.model.R;

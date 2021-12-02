@@ -12,8 +12,12 @@
     <artifactId>service</artifactId>
     <packaging>pom</packaging>
     <modules>
+        <!--系统模块service-->
         <module>service-system</module>
+        <!--公共模块service-->
         <module>service-common</module>
+        <!--代码自动生成service-->
+        <module>service-generator</module>
     </modules>
 
     <dependencies>

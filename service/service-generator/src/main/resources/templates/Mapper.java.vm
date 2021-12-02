@@ -1,0 +1,15 @@
+package ${package}.db.${moduleName}.mapper;
+
+import ${package}.db.${moduleName}.entity.${className};
+#if(${hasSuperMapper})
+import ${superMapper};
+#end
+
+/**
+ * ${comments}Mapper
+ * @author ${author}
+ * @create ${datetime}
+ */
+public interface ${className}Mapper#if(${hasSuperMapper}) extends ${superMapperName}#end<${className}> {
+
+}

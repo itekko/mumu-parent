@@ -1,4 +1,4 @@
-package com.mumu.common.db.config;
+package com.mumu.db.common.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;

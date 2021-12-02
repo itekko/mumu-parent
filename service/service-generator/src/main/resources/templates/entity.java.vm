@@ -1,0 +1,40 @@
+package ${package}.db.${moduleName}.entity;
+
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Getter;
+import lombok.Setter;
+#if(${hasBaseDO})
+import ${superDo};
+#end
+#if(${hasDatetime})
+#if(${usedjdk8TimeType} >0)
+import java.time.LocalDateTime;
+#else
+import java.util.Date;
+#end
+#end
+#if(${hasBigDecimal})
+import java.math.BigDecimal;
+#end
+
+/**
+ * ${comments}实体类
+ * @author ${author}
+ * @create ${datetime}
+ */
+@Getter
+@Setter
+@TableName("${tableName}")
+public class ${className} #if(${hasBaseDO})extends ${superDoName} #end{
+
+#foreach ($column in $columns)
+#if ($column.attrAname != $pk.attrAname)
+    /**
+     * $column.comments
+     */
+    private $column.attrType $column.attrAname;
+
+#end
+#end
+}
+

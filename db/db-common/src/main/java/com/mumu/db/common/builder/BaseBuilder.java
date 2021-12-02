@@ -1,4 +1,4 @@
-package com.mumu.common.db.builder;
+package com.mumu.db.common.builder;
 
 
 import cn.hutool.core.util.ArrayUtil;

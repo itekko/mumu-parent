@@ -1,0 +1,18 @@
+package ${package}.db.${moduleName}.dao.impl;
+
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import ${package}.db.${moduleName}.dao.${className}Dao;
+import ${package}.db.${moduleName}.entity.${className};
+import ${package}.db.${moduleName}.mapper.${className}Mapper;
+import org.springframework.stereotype.Service;
+
+
+/**
+ * ${comments}Dao层实现
+ * @author ${author}
+ * @create ${datetime}
+ */
+@Service
+public class ${className}DaoImpl extends ServiceImpl<${className}Mapper, ${className}> implements ${className}Dao {
+
+}

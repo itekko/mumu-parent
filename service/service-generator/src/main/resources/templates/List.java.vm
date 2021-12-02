@@ -1,0 +1,31 @@
+package ${package}.web.${moduleName}.vo.in;
+
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+/**
+ * ${comments}列表
+ * @author ${author}
+ * @create ${datetime}
+ */
+@Getter
+@Setter
+@ToString
+public class ${className}List {
+
+    @ApiModelProperty(value = "id")
+    private String id;
+
+#foreach ($column in $columns)
+#if ($column.attrAname != $pk.attrAname)
+    /**
+     * $column.comments
+     */
+    @ApiModelProperty(value = "$column.comments")
+    private $column.attrType $column.attrAname;
+
+#end
+#end
+}

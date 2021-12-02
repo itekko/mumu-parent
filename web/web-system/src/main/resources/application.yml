@@ -56,3 +56,70 @@ logging:
 #knife4j:
 #  basic:
 #    enable: true
+
+generator:
+  tables:
+    - system_dictionary
+  tablePrefix: system_
+  outPutPath: /Users/ekko/Documents/workspace/src.zip
+  autoRemovePre: "true"
+  importPackage: com.mumu
+  author: ekko
+  email: 1182842016@qq.com
+  moduleName: system
+  usedjdk8TimeType: 1
+  superMapper: com.baomidou.mybatisplus.core.mapper.BaseMapper
+  superDo: com.mumu.db.common.entity.BaseEntity
+  superService: com.mumu.service.common.CommonService
+  #superServiceImpl: com.mi.phone.fs.tpm.dal.MyServiceImpl
+  #superController: com.mi.phone.fs.tpm.dal.MyController
+
+  mappers:
+    - dbType: tinyint
+      javaType: Integer
+    - dbType: smallint
+      javaType: Integer
+    - dbType: mediumint
+      javaType: Integer
+    - dbType: int
+      javaType: Integer
+    - dbType: integer
+      javaType: Integer
+    - dbType: bigint
+      javaType: Long
+    - dbType: float
+      javaType: Float
+    - dbType: double
+      javaType: Double
+    - dbType: decimal
+      javaType: BigDecimal
+    - dbType: bit
+      javaType: Boolean
+    - dbType: char
+      javaType: String
+    - dbType: varchar
+      javaType: String
+    - dbType: tinytext
+      javaType: String
+    - dbType: text
+      javaType: String
+    - dbType: mediumtext
+      javaType: String
+    - dbType: longtext
+      javaType: String
+    - dbType: date
+      javaType: LocalDateTime
+    - dbType: datetime
+      javaType: LocalDateTime
+    - dbType: timestamp
+      javaType: LocalDateTime
+    - dbType: json
+      javaType: String
+  commonFields:
+    - created_by
+    - created_time
+    - updated_by
+    - updated_time
+    - delete_flag
+    - id
+    - revision

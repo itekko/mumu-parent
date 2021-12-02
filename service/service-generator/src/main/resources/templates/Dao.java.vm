@@ -1,0 +1,13 @@
+package ${package}.db.${moduleName}.dao;
+
+
+import com.baomidou.mybatisplus.extension.service.IService;
+import ${package}.db.${moduleName}.entity.${className};
+
+/**
+ * ${comments}Dao层
+ * @author ${author}
+ * @create ${datetime}
+ */
+public interface ${className}Dao extends IService<${className}> {
+}

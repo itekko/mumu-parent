@@ -1,0 +1,14 @@
+package ${package}.service.${moduleName}.service;
+
+#if(${hasSuperService})
+import ${superService};
+#end
+import ${package}.service.${moduleName}.bo.${className}BO;
+
+/**
+ * ${comments}服务层
+ * @author ${author}
+ * @create ${datetime}
+ */
+public interface ${className}Service #if(${hasSuperService}) extends ${superServiceName}#end<${className}BO> {
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="${package}.db.${moduleName}.mapper.${className}Mapper">
+
+    <resultMap id="BaseResultMap" type="${package}.entity.${moduleName}.${className}">
+#foreach ($column in $commonColumns)
+#if ($column.attrAname == $pk.attrAname)
+        <id column="$column.columnName" property="$column.attrAname"/>
+#end
+#if ($column.attrAname != $pk.attrAname)
+        <result column="$column.columnName" property="$column.attrAname"/>
+#end
+#end
+#foreach ($column in $columns)
+#if ($column.attrAname == $pk.attrAname)
+        <id column="$column.columnName" property="$column.attrAname"/>
+#end
+#if ($column.attrAname != $pk.attrAname)
+        <result column="$column.columnName" property="$column.attrAname"/>
+#end
+#end
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+#foreach ($column in $commonColumns)
+        $column.columnName as $column.attrAname,
+#end
+#foreach ($column in $columns)
+        $column.columnName as $column.attrAname#if($foreach.hasNext),
+#end
+#end
+
+    </sql>
+
+    <!-- 通用查询带t结果列 -->
+    <sql id="Base_table_Column_List">
+#foreach ($column in $commonColumns)
+        t.$column.columnName as $column.attrAname,
+#end
+#foreach ($column in $columns)
+        t.$column.columnName as $column.attrAname#if($foreach.hasNext),
+#end
+#end
+
+    </sql>
+
+</mapper>

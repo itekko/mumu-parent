@@ -29,16 +29,22 @@
         <spring-boot.version>2.4.3</spring-boot.version>
         <hutool.version>5.7.16</hutool.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
+        <commons-io.version>2.5</commons-io.version>
+        <guava.version>30.0-jre</guava.version>
         <mybatis-plus-starter.version>3.4.3.4</mybatis-plus-starter.version>
         <easypoi-spring-boot-starter.version>4.4.0</easypoi-spring-boot-starter.version>
         <redisson-spring-boot-starter.version>3.16.4</redisson-spring-boot-starter.version>
         <sa-token-spring-boot-starter.version>1.28.0</sa-token-spring-boot-starter.version>
         <knife4j-spring-boot-starter.version>2.0.9</knife4j-spring-boot-starter.version>
 
+        <velocity.version>1.7</velocity.version>
+
         <common.version>1.0-SNAPSHOT</common.version>
         <db-common.version>1.0-SNAPSHOT</db-common.version>
+        <db-generator.version>1.0-SNAPSHOT</db-generator.version>
         <service-common.version>1.0-SNAPSHOT</service-common.version>
         <service-system.version>1.0-SNAPSHOT</service-system.version>
+        <service-generator.version>1.0-SNAPSHOT</service-generator.version>
         <db-system.version>1.0-SNAPSHOT</db-system.version>
         <web-common.version>1.0-SNAPSHOT</web-common.version>
 
@@ -61,6 +67,17 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>
@@ -114,6 +131,25 @@
                 <version>${commons-lang3.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <!--velocity代码生成使用模板 -->
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity</artifactId>
+                <version>${velocity.version}</version>
+            </dependency>
+
             <!--自定义模块开始-->
             <dependency>
                 <groupId>com.mumu</groupId>
@@ -125,6 +161,12 @@
                 <groupId>com.mumu</groupId>
                 <artifactId>db-common</artifactId>
                 <version>${db-common.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mumu</groupId>
+                <artifactId>db-generator</artifactId>
+                <version>${db-generator.version}</version>
             </dependency>
 
             <dependency>
@@ -143,6 +185,12 @@
                 <groupId>com.mumu</groupId>
                 <artifactId>service-system</artifactId>
                 <version>${service-system.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mumu</groupId>
+                <artifactId>service-generator</artifactId>
+                <version>${service-generator.version}</version>
             </dependency>
 
             <dependency>

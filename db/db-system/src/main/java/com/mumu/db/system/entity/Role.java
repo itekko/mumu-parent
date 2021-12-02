@@ -1,7 +1,7 @@
 package com.mumu.db.system.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.mumu.common.db.entity.BaseEntity;
+import com.mumu.db.common.entity.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,7 +13,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@TableName("SYS_ROLE")
+@TableName("system_role")
 public class Role extends BaseEntity {
 
     /**

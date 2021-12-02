@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mumu.common.constant.CodeConstants;
 import com.mumu.common.constant.CommonConstants;
-import com.mumu.common.db.builder.BaseBuilder;
+import com.mumu.db.common.builder.BaseBuilder;
 import com.mumu.db.system.dao.RoleDao;
 import com.mumu.db.system.entity.Role;
 import com.mumu.service.system.bo.RoleBO;

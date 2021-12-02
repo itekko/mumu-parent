@@ -1,0 +1,126 @@
+package ${package}.service.${moduleName}.service.impl;
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.mumu.common.constant.CodeConstants;
+import com.mumu.common.constant.CommonConstants;
+import com.mumu.db.common.builder.BaseBuilder;
+import ${package}.db.${moduleName}.dao.${className}Dao;
+import ${package}.db.${moduleName}.entity.${className};
+import ${package}.service.${moduleName}.bo.${className}BO;
+import ${package}.service.${moduleName}.service.${className}Service;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
+import org.springframework.util.CollectionUtils;
+
+import java.io.Serializable;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * ${comments}服务层实现
+ * @author ${author}
+ * @create ${datetime}
+ */
+@Slf4j
+@Service
+@AllArgsConstructor
+public class ${className}ServiceImpl implements ${className}Service {
+
+    private final ${className}Dao ${classname}Dao;
+
+    /**
+     * 新增
+     * @param ${classname}BO
+     * @return
+     */
+    @Override
+    public Boolean save(${className}BO ${classname}BO) {
+        return ${classname}Dao.save(BaseBuilder.copyProperties(${classname}BO, ${className}.class));
+    }
+
+    /**
+     * 更新
+     * @param ${classname}BO
+     * @return
+     */
+    @Override
+    public Boolean update(${className}BO ${classname}BO) {
+        ${className} old = ${classname}Dao.getById(${classname}BO.getId());
+        Assert.notNull(old,CodeConstants.DATA_NOT_EXIST);
+        ${className} ${classname} = BaseBuilder.copyProperties(${classname}BO, ${className}.class);
+        ${classname}.setRevision(old.getRevision());
+        return ${classname}Dao.updateById(${classname});
+    }
+
+    /**
+     * 删除
+     * @param id
+     * @return
+     */
+    @Override
+    public Boolean remove(Serializable id) {
+        Assert.notNull(${classname}Dao.getById(id),CodeConstants.DATA_NOT_EXIST);
+        return ${classname}Dao.removeById(id);
+    }
+
+    @Override
+    public Boolean batchRemove(List<Serializable> ids) {
+        return ${classname}Dao.removeByIds(ids);
+    }
+
+    /**
+     * 查询
+     * @param id
+     * @return
+     */
+    @Override
+    public ${className}BO get(Serializable id) {
+        ${className} ${classname} = ${classname}Dao.getById(id);
+        Assert.notNull(${classname},CodeConstants.DATA_NOT_EXIST);
+        return BaseBuilder.copyProperties(${classname},${className}BO.class);
+    }
+
+    /**
+     * 分页
+     * @param ${classname}BO
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    @Override
+    public IPage<${className}BO> page(${className}BO ${classname}BO, Integer pageNum, Integer pageSize) {
+        Page<${className}> page = new Page<>(pageNum, pageSize);
+        QueryWrapper<${className}> queryWrapper = new QueryWrapper<>(BaseBuilder.copyProperties(${classname}BO, ${className}.class));
+        queryWrapper.orderByDesc(CommonConstants.COMMON_TABLE_ID);
+        page = ${classname}Dao.page(page, queryWrapper);
+        Page<${className}BO> result = new Page<>();
+        BeanUtils.copyProperties(page,result);
+        List<${className}> records = page.getRecords();
+        if(CollectionUtils.isEmpty(records)){
+            result.setRecords(Collections.emptyList());
+            return result;
+        }
+
+        result.setRecords(records.stream().map(it -> BaseBuilder.copyProperties(it,${className}BO.class)).collect(Collectors.toList()));
+        return result;
+    }
+
+    /**
+     * 列表
+     * @param ${classname}BO
+     * @return
+     */
+    @Override
+    public List<${className}BO> list(${className}BO ${classname}BO) {
+        QueryWrapper<${className}> queryWrapper = new QueryWrapper<>(BaseBuilder.copyProperties(${classname}BO, ${className}.class));
+        queryWrapper.orderByDesc(CommonConstants.COMMON_TABLE_ID);
+        List<${className}> list = ${classname}Dao.list(queryWrapper);
+        return CollectionUtils.isEmpty(list) ? Collections.emptyList(): list.stream().map(it -> BaseBuilder.copyProperties(it,${className}BO.class)).collect(Collectors.toList());
+    }
+}

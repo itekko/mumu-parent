@@ -23,6 +23,10 @@
             <groupId>com.mumu</groupId>
             <artifactId>service-system</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.mumu</groupId>
+            <artifactId>service-generator</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

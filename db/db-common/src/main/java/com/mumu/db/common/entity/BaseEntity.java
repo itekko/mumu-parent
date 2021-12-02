@@ -1,6 +1,7 @@
-package com.mumu.common.db.entity;
+package com.mumu.db.common.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.Version;
 import lombok.Getter;
@@ -31,6 +32,7 @@ public class BaseEntity {
     /**
      * id
      */
+    @TableId
     private String id;
 
     /**
