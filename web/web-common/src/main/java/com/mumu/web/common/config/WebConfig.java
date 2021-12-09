@@ -15,6 +15,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
@@ -36,7 +37,7 @@ import java.util.Locale;
 @EnableSpringUtil
 @Configuration
 @AllArgsConstructor
-public class WebConfig {
+public class WebConfig  implements WebMvcConfigurer{
 
     /**
      * 默认解析器 其中locale表示默认语言
@@ -79,6 +80,19 @@ public class WebConfig {
         javaTimeModule.addDeserializer(LocalTime.class, new LocalTimeDeserializer(DateTimeFormatter.ofPattern(DatePattern.NORM_TIME_PATTERN)));
         objectMapper.registerModule(javaTimeModule);
         return objectMapper;
+    }
+
+    /**
+     * 添加跨越配置
+     * @param registry
+     */
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        WebMvcConfigurer.super.addCorsMappings(registry);
+        registry.addMapping("/**")
+                .allowedHeaders("*")
+                .allowedMethods("POST","GET")
+                .allowedOrigins("*");
     }
 
 

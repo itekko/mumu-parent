@@ -8,12 +8,18 @@ import lombok.ToString;
 /**
  * 字典查询
  * @author ekko
- * @create 2021-12-01 17:54:49
+ * @create 2021-12-06 15:54:20
  */
 @Getter
 @Setter
 @ToString
 public class DictionaryQuery {
+
+    /**
+     * code编码
+     */
+    @ApiModelProperty(value = "code编码")
+    private String code;
 
     /**
      * 名称
@@ -26,6 +32,12 @@ public class DictionaryQuery {
      */
     @ApiModelProperty(value = "值")
     private String dictionaryValue;
+
+    /**
+     * 排序权重
+     */
+    @ApiModelProperty(value = "排序权重")
+    private Integer orderNo;
 
     /**
      * 模块;分组使用,建议用英文、数字、下划线组合

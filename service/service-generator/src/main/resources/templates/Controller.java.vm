@@ -18,10 +18,13 @@ import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static com.mumu.web.common.constant.WebConstants.*;
 
 /**
  * ${comments}web层
@@ -43,7 +46,7 @@ public class ${className}Controller {
      * @return
      */
     @ApiOperation(value = "列表")
-    @PostMapping("list")
+    @PostMapping(LIST)
     public R<List<${className}List>> list(@RequestBody ${className}Query ${classname}Query){
         return R.success(${classname}Service
                 .list(BaseBuilder.copyProperties(${classname}Query, ${className}BO.class))
@@ -58,7 +61,7 @@ public class ${className}Controller {
      * @return
      */
     @ApiOperation(value = "列表(分页)")
-    @PostMapping("page")
+    @PostMapping(PAGE)
     public R<IPage<${className}List>> page(@RequestBody PageQuery<${className}Query> pageQuery){
         IPage<${className}BO> page = ${classname}Service.page(BaseBuilder.copyProperties(pageQuery.getSearch(), ${className}BO.class), pageQuery.getCurrent(), pageQuery.getSize());
         IPage<${className}List> result = new Page<>();
@@ -96,7 +99,7 @@ public class ${className}Controller {
      * @return
      */
     @ApiOperation(value = "详情")
-    @GetMapping("get/{id}")
+    @GetMapping(DETAIL)
     public R<${className}Detail> get(@PathVariable("id") Serializable id){
         return R.success(BaseBuilder.copyProperties(${classname}Service.get(id),${className}Detail.class));
     }
@@ -107,7 +110,7 @@ public class ${className}Controller {
      * @return
      */
     @ApiOperation(value = "删除")
-    @GetMapping("remove/{id}")
+    @GetMapping(REMOVE)
     public R<Boolean> remove(@PathVariable("id") Serializable id){
         return R.success(${classname}Service.remove(id));
     }
@@ -118,7 +121,7 @@ public class ${className}Controller {
      * @return
      */
     @ApiOperation(value = "批量删除")
-    @PostMapping("batchRemove")
+    @PostMapping(BATCH_REMOVE)
     public R<Boolean> remove(@RequestBody BatchRemoveVO batchRemoveVO){
         return R.success(${classname}Service.batchRemove(batchRemoveVO.getIds()));
     }

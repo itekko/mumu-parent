@@ -24,7 +24,7 @@ public class R<T> {
     private String code;
 
     @ApiModelProperty(value = "响应信息")
-    private String msg;
+    private String message;
 
     @ApiModelProperty(value = "响应对象")
     private T data;
@@ -55,7 +55,7 @@ public class R<T> {
         R<T> apiResult = new R<>();
         apiResult.setCode(code);
         apiResult.setData(data);
-        apiResult.setMsg(msg);
+        apiResult.setMessage(msg);
         return apiResult;
     }
 }

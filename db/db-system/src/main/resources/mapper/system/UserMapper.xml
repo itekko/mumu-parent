@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mumu.db.system.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.mumu.db.system.entity.User">
+        <id column="id" property="id"/>
+        <result column="revision" property="revision"/>
+        <result column="created_by" property="createdBy"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="updated_by" property="updatedBy"/>
+        <result column="updated_time" property="updatedTime"/>
+        <result column="delete_flag" property="deleteFlag"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="status" property="status"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id as id,
+        revision as revision,
+        created_by as createdBy,
+        created_time as createdTime,
+        updated_by as updatedBy,
+        updated_time as updatedTime,
+        delete_flag as deleteFlag,
+        username as username,
+        password as password,
+        status as status
+    </sql>
+
+    <!-- 通用查询带t结果列 -->
+    <sql id="Base_table_Column_List">
+        t.id as id,
+        t.revision as revision,
+        t.created_by as createdBy,
+        t.created_time as createdTime,
+        t.updated_by as updatedBy,
+        t.updated_time as updatedTime,
+        t.delete_flag as deleteFlag,
+        t.username as username,
+        t.password as password,
+        t.status as status
+    </sql>
+
+</mapper>

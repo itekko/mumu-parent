@@ -23,10 +23,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * 角色服务实现类
+ * 角色服务层实现
  * @author ekko
- * @description
- * @create 2021-11-30 9:53 上午
+ * @create 2021-12-02 16:48:31
  */
 @Slf4j
 @Service

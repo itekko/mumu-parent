@@ -4,11 +4,9 @@ import com.mumu.service.common.CommonService;
 import com.mumu.service.system.bo.RoleBO;
 
 /**
- * 角色服务类
+ * 角色服务层
  * @author ekko
- * @description
- * @create 2021-11-30 9:34 上午
+ * @create 2021-12-02 16:48:31
  */
-
-public interface RoleService extends CommonService<RoleBO> {
+public interface RoleService  extends CommonService<RoleBO> {
 }

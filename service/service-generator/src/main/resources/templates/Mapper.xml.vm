@@ -3,7 +3,7 @@
 
 <mapper namespace="${package}.db.${moduleName}.mapper.${className}Mapper">
 
-    <resultMap id="BaseResultMap" type="${package}.entity.${moduleName}.${className}">
+    <resultMap id="BaseResultMap" type="${package}.db.${moduleName}.entity.${className}">
 #foreach ($column in $commonColumns)
 #if ($column.attrAname == $pk.attrAname)
         <id column="$column.columnName" property="$column.attrAname"/>

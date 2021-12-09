@@ -8,12 +8,17 @@ import com.mumu.db.common.entity.BaseEntity;
 /**
  * 字典实体类
  * @author ekko
- * @create 2021-12-01 17:54:49
+ * @create 2021-12-06 15:54:20
  */
 @Getter
 @Setter
 @TableName("system_dictionary")
 public class Dictionary extends BaseEntity {
+
+    /**
+     * code编码
+     */
+    private String code;
 
     /**
      * 名称
@@ -24,6 +29,11 @@ public class Dictionary extends BaseEntity {
      * 值
      */
     private String dictionaryValue;
+
+    /**
+     * 排序权重
+     */
+    private Integer orderNo;
 
     /**
      * 模块;分组使用,建议用英文、数字、下划线组合

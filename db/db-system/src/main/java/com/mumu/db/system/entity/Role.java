@@ -1,15 +1,14 @@
 package com.mumu.db.system.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.mumu.db.common.entity.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
+import com.mumu.db.common.entity.BaseEntity;
 
 /**
  * 角色实体类
  * @author ekko
- * @description
- * @create 2021-11-29 7:30 下午
+ * @create 2021-12-06 15:54:16
  */
 @Getter
 @Setter
@@ -22,7 +21,19 @@ public class Role extends BaseEntity {
     private String code;
 
     /**
+     * 权限类型(字典DATA_PERMISSION_TYPE)
+     */
+    private Integer permissionType;
+
+    /**
      * 角色名称
      */
     private String name;
+
+    /**
+     * 状态(字典STATUS)
+     */
+    private Integer status;
+
 }
+

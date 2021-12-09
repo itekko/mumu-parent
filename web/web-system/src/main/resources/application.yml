@@ -37,6 +37,9 @@ sa-token:
 
 #MyBatis-plus
 mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*Mapper.xml
+  typeAliasesPackage: com.mumu.db.*.entity
+  type-enums-package: com.mumu.db.*.enums
   global-config:
     banner: false
   configuration:
@@ -44,6 +47,9 @@ mybatis-plus:
     call-setters-on-nulls: true
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     jdbc-type-for-null: null
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 
 logging:
@@ -59,7 +65,14 @@ logging:
 
 generator:
   tables:
+    - system_role
     - system_dictionary
+    - system_user
+    - system_user_role
+    - system_resource
+    - system_role_resource
+    - system_department
+    - system_user_department
   tablePrefix: system_
   outPutPath: /Users/ekko/Documents/workspace/src.zip
   autoRemovePre: "true"
@@ -123,3 +136,14 @@ generator:
     - delete_flag
     - id
     - revision
+
+system:
+  excludePathPatterns:
+    - /home/**
+    - '*.html'
+    - '*.css'
+    - '*.htm'
+    - '*.png'
+    - '/doc.html'
+    - '/swagger-resources/**'
+    - '/webjars/**'

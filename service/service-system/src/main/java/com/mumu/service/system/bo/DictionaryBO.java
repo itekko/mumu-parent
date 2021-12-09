@@ -7,7 +7,7 @@ import lombok.ToString;
 /**
  * 字典BO
  * @author ekko
- * @create 2021-12-01 17:54:49
+ * @create 2021-12-06 15:54:20
  */
 @Getter
 @Setter
@@ -20,6 +20,11 @@ public class DictionaryBO {
     private String id;
 
     /**
+     * code编码
+     */
+    private String code;
+
+    /**
      * 名称
      */
     private String name;
@@ -28,6 +33,11 @@ public class DictionaryBO {
      * 值
      */
     private String dictionaryValue;
+
+    /**
+     * 排序权重
+     */
+    private Integer orderNo;
 
     /**
      * 模块;分组使用,建议用英文、数字、下划线组合

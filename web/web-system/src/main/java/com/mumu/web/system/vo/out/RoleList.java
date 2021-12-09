@@ -5,12 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDateTime;
-
 /**
+ * 角色列表
  * @author ekko
- * @description
- * @create 2021-11-30 4:35 下午
+ * @create 2021-12-02 16:48:31
  */
 @Getter
 @Setter
@@ -27,32 +25,21 @@ public class RoleList {
     private String code;
 
     /**
+     * 权限类型
+     */
+    @ApiModelProperty(value = "权限类型")
+    private String permissionType;
+
+    /**
      * 角色名称
      */
     @ApiModelProperty(value = "角色名称")
     private String name;
 
     /**
-     * 创建者
+     * 状态
      */
-    @ApiModelProperty(value = "创建者")
-    private String createdBy;
+    @ApiModelProperty(value = "状态")
+    private Integer status;
 
-    /**
-     * 创建时间
-     */
-    @ApiModelProperty(value = "创建时间")
-    private LocalDateTime createdTime;
-
-    /**
-     * 更新者
-     */
-    @ApiModelProperty(value = "更新者")
-    private String updatedBy;
-
-    /**
-     * 更新时间
-     */
-    @ApiModelProperty(value = "更新时间")
-    private LocalDateTime updatedTime;
 }

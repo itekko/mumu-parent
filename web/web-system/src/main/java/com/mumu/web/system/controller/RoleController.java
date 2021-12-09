@@ -24,17 +24,19 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.mumu.web.common.constant.WebConstants.*;
+
 /**
+ * 角色web层
  * @author ekko
- * @description
- * @create 2021-11-30 4:14 下午
+ * @create 2021-12-02 16:48:31
  */
-@Api(tags = "角色管理")
+@Api(tags = "角色")
 @Slf4j
 @AllArgsConstructor
 @RestController
 @RequestMapping("role")
-public class RoleController{
+public class RoleController {
 
     private final RoleService roleService;
 
@@ -44,7 +46,7 @@ public class RoleController{
      * @return
      */
     @ApiOperation(value = "列表")
-    @PostMapping("list")
+    @PostMapping(LIST)
     public R<List<RoleList>> list(@RequestBody RoleQuery roleQuery){
         return R.success(roleService
                 .list(BaseBuilder.copyProperties(roleQuery, RoleBO.class))
@@ -59,7 +61,7 @@ public class RoleController{
      * @return
      */
     @ApiOperation(value = "列表(分页)")
-    @PostMapping("page")
+    @PostMapping(PAGE)
     public R<IPage<RoleList>> page(@RequestBody PageQuery<RoleQuery> pageQuery){
         IPage<RoleBO> page = roleService.page(BaseBuilder.copyProperties(pageQuery.getSearch(), RoleBO.class), pageQuery.getCurrent(), pageQuery.getSize());
         IPage<RoleList> result = new Page<>();
@@ -97,18 +99,18 @@ public class RoleController{
      * @return
      */
     @ApiOperation(value = "详情")
-    @GetMapping("get/{id}")
+    @GetMapping(DETAIL)
     public R<RoleDetail> get(@PathVariable("id") Serializable id){
         return R.success(BaseBuilder.copyProperties(roleService.get(id),RoleDetail.class));
     }
 
     /**
-     * 意见反馈表删除
+     * 删除
      * @param  id
      * @return
      */
     @ApiOperation(value = "删除")
-    @GetMapping("remove/{id}")
+    @GetMapping(REMOVE)
     public R<Boolean> remove(@PathVariable("id") Serializable id){
         return R.success(roleService.remove(id));
     }
@@ -119,7 +121,7 @@ public class RoleController{
      * @return
      */
     @ApiOperation(value = "批量删除")
-    @PostMapping("batchRemove")
+    @PostMapping(BATCH_REMOVE)
     public R<Boolean> remove(@RequestBody BatchRemoveVO batchRemoveVO){
         return R.success(roleService.batchRemove(batchRemoveVO.getIds()));
     }

@@ -35,8 +35,7 @@ public class GeneratorServiceImpl implements GeneratorService {
      */
     @Override
     public List<Map<String, Object>> list() {
-        List<Map<String, Object>> list = generatorMapper.list();
-        return list;
+        return generatorMapper.list();
     }
 
     /**

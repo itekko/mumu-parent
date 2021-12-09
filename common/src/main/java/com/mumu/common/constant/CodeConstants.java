@@ -28,4 +28,15 @@ public final class CodeConstants {
      * 参数错误
      */
     public static final String ARGS_ERROR = "4001";
+
+
+    /**
+     * 用户不存在
+     */
+    public static final String USER_NOT_EXIST = "6000";
+
+    /**
+     * 密码错误
+     */
+    public static final String PASSWORD_ERROR = "6001";
 }

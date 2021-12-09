@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mumu.db.system.mapper.RoleMapper">
+
+    <resultMap id="BaseResultMap" type="com.mumu.db.system.entity.Role">
+        <id column="id" property="id"/>
+        <result column="revision" property="revision"/>
+        <result column="created_by" property="createdBy"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="updated_by" property="updatedBy"/>
+        <result column="updated_time" property="updatedTime"/>
+        <result column="delete_flag" property="deleteFlag"/>
+        <result column="code" property="code"/>
+        <result column="permission_type" property="permissionType"/>
+        <result column="name" property="name"/>
+        <result column="status" property="status"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id as id,
+        revision as revision,
+        created_by as createdBy,
+        created_time as createdTime,
+        updated_by as updatedBy,
+        updated_time as updatedTime,
+        delete_flag as deleteFlag,
+        code as code,
+        permission_type as permissionType,
+        name as name,
+        status as status
+    </sql>
+
+    <!-- 通用查询带t结果列 -->
+    <sql id="Base_table_Column_List">
+        t.id as id,
+        t.revision as revision,
+        t.created_by as createdBy,
+        t.created_time as createdTime,
+        t.updated_by as updatedBy,
+        t.updated_time as updatedTime,
+        t.delete_flag as deleteFlag,
+        t.code as code,
+        t.permission_type as permissionType,
+        t.name as name,
+        t.status as status
+    </sql>
+
+    <select id="selectListByUserId" resultType="com.mumu.db.system.entity.Role">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        system_role
+        WHERE
+        id IN (
+        SELECT DISTINCT
+        role_id
+        FROM
+        system_user_role
+        WHERE
+        user_id = #{userId}
+        )
+        and delete_flag = 0
+
+    </select>
+
+</mapper>

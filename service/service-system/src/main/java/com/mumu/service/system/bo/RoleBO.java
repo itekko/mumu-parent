@@ -4,13 +4,10 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDateTime;
-
 /**
  * 角色BO
  * @author ekko
- * @description
- * @create 2021-11-30 9:50 上午
+ * @create 2021-12-02 16:48:31
  */
 @Getter
 @Setter
@@ -28,27 +25,19 @@ public class RoleBO {
     private String code;
 
     /**
+     * 权限类型
+     */
+    private String permissionType;
+
+    /**
      * 角色名称
      */
     private String name;
 
     /**
-     * 创建者
+     * 状态
      */
-    private String createdBy;
+    private Integer status;
 
-    /**
-     * 创建时间
-     */
-    private LocalDateTime createdTime;
-
-    /**
-     * 更新者
-     */
-    private String updatedBy;
-
-    /**
-     * 更新时间
-     */
-    private LocalDateTime updatedTime;
 }
+

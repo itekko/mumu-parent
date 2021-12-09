@@ -24,10 +24,12 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.mumu.web.common.constant.WebConstants.*;
+
 /**
  * 字典web层
  * @author ekko
- * @create 2021-12-01 17:54:49
+ * @create 2021-12-02 16:48:31
  */
 @Api(tags = "字典")
 @Slf4j
@@ -44,7 +46,7 @@ public class DictionaryController {
      * @return
      */
     @ApiOperation(value = "列表")
-    @PostMapping("list")
+    @PostMapping(LIST)
     public R<List<DictionaryList>> list(@RequestBody DictionaryQuery dictionaryQuery){
         return R.success(dictionaryService
                 .list(BaseBuilder.copyProperties(dictionaryQuery, DictionaryBO.class))
@@ -59,7 +61,7 @@ public class DictionaryController {
      * @return
      */
     @ApiOperation(value = "列表(分页)")
-    @PostMapping("page")
+    @PostMapping(PAGE)
     public R<IPage<DictionaryList>> page(@RequestBody PageQuery<DictionaryQuery> pageQuery){
         IPage<DictionaryBO> page = dictionaryService.page(BaseBuilder.copyProperties(pageQuery.getSearch(), DictionaryBO.class), pageQuery.getCurrent(), pageQuery.getSize());
         IPage<DictionaryList> result = new Page<>();
@@ -97,7 +99,7 @@ public class DictionaryController {
      * @return
      */
     @ApiOperation(value = "详情")
-    @GetMapping("get/{id}")
+    @GetMapping(DETAIL)
     public R<DictionaryDetail> get(@PathVariable("id") Serializable id){
         return R.success(BaseBuilder.copyProperties(dictionaryService.get(id),DictionaryDetail.class));
     }
@@ -108,7 +110,7 @@ public class DictionaryController {
      * @return
      */
     @ApiOperation(value = "删除")
-    @GetMapping("remove/{id}")
+    @GetMapping(REMOVE)
     public R<Boolean> remove(@PathVariable("id") Serializable id){
         return R.success(dictionaryService.remove(id));
     }
@@ -119,7 +121,7 @@ public class DictionaryController {
      * @return
      */
     @ApiOperation(value = "批量删除")
-    @PostMapping("batchRemove")
+    @PostMapping(BATCH_REMOVE)
     public R<Boolean> remove(@RequestBody BatchRemoveVO batchRemoveVO){
         return R.success(dictionaryService.batchRemove(batchRemoveVO.getIds()));
     }

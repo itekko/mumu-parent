@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 /**
  * 字典Dao层实现
  * @author ekko
- * @create 2021-12-01 17:54:49
+ * @create 2021-12-02 16:48:31
  */
 @Service
 public class DictionaryDaoImpl extends ServiceImpl<DictionaryMapper, Dictionary> implements DictionaryDao {

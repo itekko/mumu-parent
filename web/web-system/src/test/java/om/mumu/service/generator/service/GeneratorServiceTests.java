@@ -17,6 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest(classes = SystemApplication.class)
 public class GeneratorServiceTests {
 
+
     @Autowired
     private GeneratorService generatorService;
 

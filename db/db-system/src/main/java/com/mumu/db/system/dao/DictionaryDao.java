@@ -7,7 +7,7 @@ import com.mumu.db.system.entity.Dictionary;
 /**
  * 字典Dao层
  * @author ekko
- * @create 2021-12-01 17:54:49
+ * @create 2021-12-02 16:48:31
  */
 public interface DictionaryDao extends IService<Dictionary> {
 }
