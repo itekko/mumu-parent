@@ -22,12 +22,12 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/mumu?useUnicode=true&useSSL=false&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
     username: root
-    password: xiaolong
+    password: root
 
 
 sa-token:
   # token名称 (同时也是cookie名称)
-  token-name: Authorization
+  token-name: Access-Token
   # 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录)
   is-concurrent: false
   is-read-body: false
@@ -144,6 +144,8 @@ system:
     - '*.css'
     - '*.htm'
     - '*.png'
+    - '/img/**'
     - '/doc.html'
     - '/swagger-resources/**'
     - '/webjars/**'
+  uploadPath: /home/mi/images/ # 存储图片位置

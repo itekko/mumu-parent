@@ -36,4 +36,10 @@ public class UserDetail {
     @ApiModelProperty(value = "状态")
     private Integer status;
 
+    /**
+     * 头像
+     */
+    @ApiModelProperty(value = "头像")
+    private String images;
+
 }

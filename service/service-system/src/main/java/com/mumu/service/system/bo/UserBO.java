@@ -40,5 +40,10 @@ public class UserBO {
      * 角色集合
      */
     private Set<String> roles;
+
+    /**
+     * 头像
+     */
+    private String images;
 }
 

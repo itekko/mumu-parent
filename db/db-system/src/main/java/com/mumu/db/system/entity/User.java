@@ -30,5 +30,10 @@ public class User extends BaseEntity {
      */
     private Integer status;
 
+    /**
+     * 头像
+     */
+    private String images;
+
 }
 

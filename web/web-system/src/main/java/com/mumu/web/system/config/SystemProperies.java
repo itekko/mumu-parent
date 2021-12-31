@@ -1,5 +1,6 @@
 package com.mumu.web.system.config;
 
+import com.mumu.web.common.config.CommonProperties;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -11,7 +12,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  */
 @ConfigurationProperties(prefix = "system")
 @Data
-public class SystemProperies {
+public class SystemProperies extends CommonProperties {
 
     /**
      * 登录排除拦截URL Patterns

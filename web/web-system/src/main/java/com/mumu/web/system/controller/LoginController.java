@@ -8,6 +8,7 @@ package com.mumu.web.system.controller;
 
 import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
+import cn.hutool.crypto.SecureUtil;
 import com.mumu.db.common.builder.BaseBuilder;
 import com.mumu.service.system.service.LoginService;
 import com.mumu.web.common.model.R;
@@ -72,5 +73,10 @@ public class LoginController {
         log.info("登录ID:{}",loginId);
         StpUtil.logout();
         return R.success(null);
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(SecureUtil.md5("admin"));
     }
 }

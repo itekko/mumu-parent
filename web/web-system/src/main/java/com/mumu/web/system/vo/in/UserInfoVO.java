@@ -33,4 +33,10 @@ public class UserInfoVO {
 
     @ApiModelProperty(value = "角色集合")
     private Set<String> roles;
+
+    /**
+     * 头像
+     */
+    @ApiModelProperty(value = "头像")
+    private String images;
 }
