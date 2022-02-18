@@ -9,3 +9,6 @@
 /.idea
 *.iml
 /logs/
+/ant-design-pro-vue/node_modules/
+*.log
+
