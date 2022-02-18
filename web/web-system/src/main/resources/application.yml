@@ -148,4 +148,5 @@ system:
     - '/doc.html'
     - '/swagger-resources/**'
     - '/webjars/**'
+    - '/auth/**'
   uploadPath: /home/mi/images/ # 存储图片位置

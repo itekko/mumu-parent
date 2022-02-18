@@ -63,7 +63,7 @@ public class ResourceController {
     @ApiOperation(value = "列表(分页)")
     @PostMapping(PAGE)
     public R<IPage<ResourceList>> page(@RequestBody PageQuery<ResourceQuery> pageQuery){
-        IPage<ResourceBO> page = resourceService.page(BaseBuilder.copyProperties(pageQuery.getSearch(), ResourceBO.class), pageQuery.getCurrent(), pageQuery.getSize());
+        IPage<ResourceBO> page = resourceService.page(BaseBuilder.copyProperties(pageQuery.getSearch(), ResourceBO.class), pageQuery.getPageNo(), pageQuery.getPageSize());
         IPage<ResourceList> result = new Page<>();
         BeanUtils.copyProperties(page,result);
         List<ResourceBO> records = page.getRecords();

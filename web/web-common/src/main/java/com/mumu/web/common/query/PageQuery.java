@@ -33,13 +33,13 @@ public class PageQuery<T> {
      * 当前页
      */
     @ApiModelProperty(value = "当前页")
-    private Integer current = DEFAULT_CURRENT;
+    private Integer pageNo = DEFAULT_CURRENT;
 
     /**
      * 每页显示条数
      */
     @ApiModelProperty(value = "每页显示条数")
-    private Integer size = DEFAULT_SIZE;
+    private Integer pageSize = DEFAULT_SIZE;
 
 
 

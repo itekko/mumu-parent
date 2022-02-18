@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @AllArgsConstructor
 @RestController
-@RequestMapping("home")
+@RequestMapping("auth")
 public class LoginController {
 
     private final LoginService loginService;

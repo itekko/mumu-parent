@@ -64,7 +64,7 @@ public class DepartmentController {
     @ApiOperation(value = "列表(分页)")
     @PostMapping(PAGE)
     public R<IPage<DepartmentList>> page(@RequestBody PageQuery<DepartmentQuery> pageQuery){
-        IPage<DepartmentBO> page = departmentService.page(BaseBuilder.copyProperties(pageQuery.getSearch(), DepartmentBO.class), pageQuery.getCurrent(), pageQuery.getSize());
+        IPage<DepartmentBO> page = departmentService.page(BaseBuilder.copyProperties(pageQuery.getSearch(), DepartmentBO.class), pageQuery.getPageNo(), pageQuery.getPageSize());
         IPage<DepartmentList> result = new Page<>();
         BeanUtils.copyProperties(page,result);
         List<DepartmentBO> records = page.getRecords();

@@ -63,7 +63,7 @@ public class DictionaryController {
     @ApiOperation(value = "列表(分页)")
     @PostMapping(PAGE)
     public R<IPage<DictionaryList>> page(@RequestBody PageQuery<DictionaryQuery> pageQuery){
-        IPage<DictionaryBO> page = dictionaryService.page(BaseBuilder.copyProperties(pageQuery.getSearch(), DictionaryBO.class), pageQuery.getCurrent(), pageQuery.getSize());
+        IPage<DictionaryBO> page = dictionaryService.page(BaseBuilder.copyProperties(pageQuery.getSearch(), DictionaryBO.class), pageQuery.getPageNo(), pageQuery.getPageSize());
         IPage<DictionaryList> result = new Page<>();
         BeanUtils.copyProperties(page,result);
         List<DictionaryBO> records = page.getRecords();

@@ -24,7 +24,7 @@ export const asyncRouterMap = [
         component: RouteView,
         meta: { title: 'menu.dashboard', keepAlive: true, icon: bxAnaalyse, permission: [ 'dashboard' ] },
         children: [
-          {
+          /*{
             path: '/dashboard/analysis/:pageNo([1-9]\\d*)?',
             name: 'Analysis',
             component: () => import('@/views/dashboard/Analysis'),
@@ -35,7 +35,7 @@ export const asyncRouterMap = [
             path: 'https://www.baidu.com/',
             name: 'Monitor',
             meta: { title: 'menu.dashboard.monitor', target: '_blank' }
-          },
+          },*/
           {
             path: '/dashboard/workplace',
             name: 'Workplace',
@@ -215,7 +215,7 @@ export const asyncRouterMap = [
           {
             path: '/role/RoleList',
             name: 'RoleList',
-            component: () => import(/* webpackChunkName: "fail" */ '@/views/role/RoleList'),
+            component: () => import(/* webpackChunkName: "fail" */ '@/views/system/RoleList'),
             meta: { title: '角色管理', permission: [ 'authority:role' ] }
           },
           {

@@ -63,7 +63,7 @@ public class RoleController {
     @ApiOperation(value = "列表(分页)")
     @PostMapping(PAGE)
     public R<IPage<RoleList>> page(@RequestBody PageQuery<RoleQuery> pageQuery){
-        IPage<RoleBO> page = roleService.page(BaseBuilder.copyProperties(pageQuery.getSearch(), RoleBO.class), pageQuery.getCurrent(), pageQuery.getSize());
+        IPage<RoleBO> page = roleService.page(BaseBuilder.copyProperties(pageQuery.getSearch(), RoleBO.class), pageQuery.getPageNo(), pageQuery.getPageSize());
         IPage<RoleList> result = new Page<>();
         BeanUtils.copyProperties(page,result);
         List<RoleBO> records = page.getRecords();

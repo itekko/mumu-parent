@@ -63,7 +63,7 @@ public class UserController {
     @ApiOperation(value = "列表(分页)")
     @PostMapping(PAGE)
     public R<IPage<UserList>> page(@RequestBody PageQuery<UserQuery> pageQuery){
-        IPage<UserBO> page = userService.page(BaseBuilder.copyProperties(pageQuery.getSearch(), UserBO.class), pageQuery.getCurrent(), pageQuery.getSize());
+        IPage<UserBO> page = userService.page(BaseBuilder.copyProperties(pageQuery.getSearch(), UserBO.class), pageQuery.getPageNo(), pageQuery.getPageSize());
         IPage<UserList> result = new Page<>();
         BeanUtils.copyProperties(page,result);
         List<UserBO> records = page.getRecords();

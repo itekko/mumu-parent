@@ -37,7 +37,7 @@ public interface BaseController<M extends CommonService, T>  {
      * @return
      */
     default  R<IPage<T>> page(M m, PageQuery<T> pageQuery){
-        return R.success(m.page(pageQuery.getSearch(),pageQuery.getCurrent(),pageQuery.getSize()));
+        return R.success(m.page(pageQuery.getSearch(),pageQuery.getPageNo(),pageQuery.getPageSize()));
     }
 
     /**
